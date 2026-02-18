@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Practice - 4000 English Words</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .score-item {
+            text-align: center;
+        }
+        
+        .score-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .score-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .quiz-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .question {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .definition {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .option {
+            padding: 15px 25px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1em;
+        }
+        
+        .option:hover {
+            background: #e8f4f8;
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+        
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .option.wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            display: none;
+        }
+        
+        .feedback.show {
+            display: block;
+        }
+        
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .feedback.wrong {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #764ba2;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .completion-message {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+        
+        .completion-message.show {
+            display: block;
+        }
+        
+        .completion-message h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        .completion-message p {
+            color: #666;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vocabulary Practice</h1>
+        <p class="subtitle">Test your knowledge of English words</p>
+        
+        <div class="score-board">
+            <div class="score-item">
+                <div class="score-label">Question</div>
+                <div class="score-value" id="questionNumber">1/10</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Correct</div>
+                <div class="score-value" id="correctScore">0</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Wrong</div>
+                <div class="score-value" id="wrongScore">0</div>
+            </div>
+        </div>
+        
+        <div class="quiz-card" id="quizCard">
+            <div class="question" id="question">Which word means:</div>
+            <div class="definition" id="definition">Loading...</div>
+            
+            <div class="options" id="options">
+                <!-- Options will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="feedback" id="feedback"></div>
+        </div>
+        
+        <div class="completion-message" id="completionMessage">
+            <h2>🎉 Quiz Complete!</h2>
+            <p>Your score: <span id="finalScore"></span></p>
+            <div class="buttons">
+                <button class="btn btn-primary" onclick="restartQuiz()">Try Again</button>
+                <a href="index.html" class="btn btn-secondary">Back to Lessons</a>
+            </div>
+        </div>
+        
+        <div class="buttons" id="navButtons">
+            <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display:none;">Next Question</button>
+            <a href="index.html" class="btn btn-secondary">Back to Lessons</a>
+        </div>
+    </div>
+    
+    <script>
+        const vocabulary = [
+            { word: "agree", definition: "to have the same opinion or belief as another person", options: ["agree", "argue", "accept", "allow"] },
+            { word: "arrive", definition: "to get somewhere", options: ["arrive", "leave", "depart", "travel"] },
+            { word: "boat", definition: "a vehicle that moves across water", options: ["boat", "car", "plane", "train"] },
+            { word: "capture", definition: "to catch or take control of something", options: ["capture", "release", "escape", "avoid"] },
+            { word: "challenge", definition: "something difficult that tests your ability", options: ["challenge", "easy", "simple", "problem"] },
+            { word: "chapter", definition: "one part or section of a book", options: ["chapter", "page", "book", "paragraph"] },
+            { word: "alcohol", definition: "a type of drink that can make people drunk", options: ["alcohol", "water", "juice", "soda"] },
+            { word: "basic", definition: "simple or fundamental; the most important part", options: ["basic", "complex", "advanced", "difficult"] },
+            { word: "become", definition: "to start to be something", options: ["become", "remain", "stay", "keep"] },
+            { word: "August", definition: "the eighth month of the year", options: ["August", "July", "September", "October"] }
+        ];
+        
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+        let answered = false;
+        
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+        
+        function loadQuestion() {
+            if (currentQuestion >= vocabulary.length) {
+                showCompletion();
+                return;
+            }
+            
+            answered = false;
+            const current = vocabulary[currentQuestion];
+            
+            document.getElementById('questionNumber').textContent = `${currentQuestion + 1}/${vocabulary.length}`;
+            document.getElementById('definition').textContent = current.definition;
+            document.getElementById('feedback').classList.remove('show', 'correct', 'wrong');
+            document.getElementById('nextBtn').style.display = 'none';
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            const shuffledOptions = shuffleArray(current.options);
+            
+            shuffledOptions.forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => checkAnswer(option, current.word, optionDiv);
+                optionsContainer.appendChild(optionDiv);
+            });
+        }
+        
+        function checkAnswer(selected, correct, optionElement) {
+            if (answered) return;
+            answered = true;
+            
+            const feedback = document.getElementById('feedback');
+            const allOptions = document.querySelectorAll('.option');
+            
+            allOptions.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt.textContent === correct) {
+                    opt.classList.add('correct');
+                }
+            });
+            
+            if (selected === correct) {
+                correctAnswers++;
+                optionElement.classList.add('correct');
+                feedback.textContent = '✓ Correct! Well done!';
+                feedback.classList.add('show', 'correct');
+                document.getElementById('correctScore').textContent = correctAnswers;
+            } else {
+                wrongAnswers++;
+                optionElement.classList.add('wrong');
+                feedback.textContent = `✗ Wrong! The correct answer is: ${correct}`;
+                feedback.classList.add('show', 'wrong');
+                document.getElementById('wrongScore').textContent = wrongAnswers;
+            }
+            
+            document.getElementById('nextBtn').style.display = 'inline-block';
+        }
+        
+        function nextQuestion() {
+            currentQuestion++;
+            loadQuestion();
+        }
+        
+        function showCompletion() {
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('navButtons').style.display = 'none';
+            
+            const completionMsg = document.getElementById('completionMessage');
+            const percentage = Math.round((correctAnswers / vocabulary.length) * 100);
+            document.getElementById('finalScore').textContent = `${correctAnswers}/${vocabulary.length} (${percentage}%)`;
+            completionMsg.classList.add('show');
+        }
+        
+        function restartQuiz() {
+            currentQuestion = 0;
+            correctAnswers = 0;
+            wrongAnswers = 0;
+            document.getElementById('correctScore').textContent = '0';
+            document.getElementById('wrongScore').textContent = '0';
+            document.getElementById('quizCard').style.display = 'block';
+            document.getElementById('navButtons').style.display = 'flex';
+            document.getElementById('completionMessage').classList.remove('show');
+            loadQuestion();
+        }
+        
+        // Load first question on page load
+        window.onload = () => {
+            loadQuestion();
+        };
+    </script>
+</body>
+</html>
