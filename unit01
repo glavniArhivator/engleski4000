@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Essential English Words - 4000 Essential English Words</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6a0dad 0%, #4a0a7a 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        thead {
+            background: #6a0dad;
+            color: white;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        
+        tbody tr:hover {
+            background: #f5f5f5;
+            transition: background 0.3s ease;
+        }
+        
+        .word {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #6a0dad;
+            margin-bottom: 5px;
+        }
+        
+        .pronunciation {
+            font-style: italic;
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .meaning {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .example {
+            margin: 8px 0;
+            padding-left: 15px;
+            border-left: 3px solid #28a745;
+        }
+        
+        .example-en {
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        
+        .example-sr {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .speak-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .speak-btn:hover {
+            background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .speak-btn:active {
+            transform: translateY(0);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            
+            thead tr {
+                display: none;
+            }
+            
+            tr {
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            
+            td {
+                text-align: left;
+                padding: 10px;
+                position: relative;
+            }
+            
+            td:before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #6a0dad;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Unit 1: Essential English Words</h1>
+            <p>4000 Essential English Words - Stranice 10 i 11 (20 reči)</p>
+        </header>
+        
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reč i izgovor</th>
+                        <th>Značenje</th>
+                        <th>Primeri upotrebe</th>
+                        <th>Audio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Afraid -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Afraid</div>
+                            <div class="pronunciation">[əˈfreɪd]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">Uplašen, bojati se</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> The woman was afraid of the spider.</div>
+                                <div class="example-sr">Žena se uplašila pauka.</div>
+                            </div>
+                            <div class="example">
+                                <div class="example-en"><strong>2.</strong> Don't be afraid to ask questions.</div>
+                                <div class="example-sr">Nemoj se bojati da postavljaš pitanja.</div>
+                            </div>
+                        </td>
+                        <td data-label="Audio">
+                            <button class="speak-btn" onclick="speak('afraid')">🔊 Slušaj</button>
+                        </td>
+                    </tr>
+                    
+                    <!-- Agree -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Agree</div>
+                            <div class="pronunciation">[əˈɡriː]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">Složiti se, pristati</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> I agree with your opinion.</div>
+                                <div class="example-sr">Slažem se sa tvojim mišljenjem.</div>
+                            </div>
+                            <div class="example">
+                                <div class="example-en"><strong>2.</strong> They agreed to meet at 5 PM.</div>
+                                <div class="example-sr">Pristali su da se nađu u 17h.</div>
+                            </div>
+                        </td>
+                        <td data-label="Audio">
+                            <button class="speak-btn" onclick="speak('agree')">🔊 Slušaj</button>
+                        </td>
+                    </tr>
+                    
+                    <!-- Angry -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Angry</div>
+                            <div class="pronunciation">[ˈæŋɡri]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">Ljut, besan</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> The teacher was angry because the students didn't listen.</div>
+                                <div class="example-sr">Nastavnik je bio ljut jer učenici nisu slušali.</div>
+                            </div>
+                            <div class="example">
+                                <div class="example-en"><strong>2.</strong> She gets angry easily when she is hungry.</div>
+                                <div class="example-sr">Ona se lako naljuti kada je gladna.</div>
+                            </div>
+                        </td>
+                        <td data-label="Audio">
+                            <button class="speak-btn" onclick="speak('angry')">🔊 Slušaj</button>
+                        </td>
+                    </tr>
+                    
+                    <!-- Arrive -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Arrive</div>
+                            <div class="pronunciation">[əˈraɪv]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">Stići, doputovati</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> The bus always arrives at 8 o'clock.</div>
+                                <div class="example-sr">Autobus uvek stiže u 8 sati.</div>
+                            </div>
+                            <div class="example">
+                                <div class="example-en"><strong>2.</strong> We arrived in London early in the morning.</div>
+                                <div class="example-sr">Stigli smo u London rano ujutru.</div>
+                            </div>
+                        </td>
+                        <td data-label="Audio">
+                            <button class="speak-btn" onclick="speak('arrive')">🔊 Slušaj</button>
+                        </td>
+                    </tr>
+                    
+                    <!-- Attack -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Attack</div>
+                            <div class="pronunciation">[əˈtæk]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">1. Napasti (fizički)<br>2. Kritikovati (verbalno)</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> The lion prepared to attack the zebra.</div>
+                                <div class="example-sr">Lav se spremio da napadne zebru.</div>
+                            </div>
+                            <div class="example">
+                                <div class="example-en"><strong>2.</strong> The politicians attacked the new policy.</div>
+                                <div class="example-sr">Političari su napali (kritikovali) novu politiku.</div>
+                            </div>
+                        </td>
+                        <td data-label="Audio">
+                            <button class="speak-btn" onclick="speak('attack')">🔊 Slušaj</button>
+                        </td>
+                    </tr>
+                    
+                    <!-- Bottom -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Bottom</div>
+                            <div class="pronunciation">[ˈbɒtəm]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">1. Dno, donji deo<br>2. Zadnjica (neformalno)</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> The key is at the bottom of the box.</div>
+                                <div class="example-sr">Ključ je na dnu kutije.</div>
+                            </div>
+                            <div class="example">
+                                <div class="example-en"><strong>2.</strong> Sign your name at the bottom of the page.</div>
+                                <div class="example-sr">Potpiši se na dnu stranice.</div>
+                            </div>
+                        </td>
+                        <td data-label="Audio">
+                            <button class="speak-btn" onclick="speak('bottom')">🔊 Slušaj</button>
+                        </td>
+                    </tr>
+                    
+                    <!-- Clever -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Clever</div>
+                            <div class="pronunciation">[ˈklɛvər]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">Pametan, oštrouman, snalažljiv</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> The clever boy fixed the broken toy.</div>
+                                <div class="example-sr">Pametan dečak je popravio polomljenu igračku.</div>
+                            </div>
+                            <div class="example">
+                                <div class="example-en"><strong>2.</strong> That was a clever solution to the problem.</div>
+                                <div class="example-sr">To je bilo oštroumno rešenje problema.</div>
+                            </div>
+                        </td>
+                        <td data-label="Audio">
+                            <button class="speak-btn" onclick="speak('clever')">🔊 Slušaj</button>
+                        </td>
+                    </tr>
+                    
+                    <!-- Cruel -->
+                    <tr>
+                        <td data-label="Reč i izgovor">
+                            <div class="word">Cruel</div>
+                            <div class="pronunciation">[ˈkruːəl]</div>
+                        </td>
+                        <td data-label="Značenje">
+                            <div class="meaning">Okrutan, surov, nemilosrdan</div>
+                        </td>
+                        <td data-label="Primeri">
+                            <div class="example">
+                                <div class="example-en"><strong>1.</strong> It is cruel to kick a dog.</div>
+                                <div class="example-sr">Okrut
